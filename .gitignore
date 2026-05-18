@@ -1,0 +1,20 @@
+# Maven build output (compiled classes and test reports)
+target/
+
+# IntelliJ IDEA project specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Log files
+*.log
+
+# Local crash logs
+clear_dump.sh
