@@ -26,8 +26,8 @@ public class LoginPage extends BasePage {
 
     /**
      * Fill in the login credentials, wait for the reCAPTCHA token, and submit the form.
-     * @param username
-     * @param password
+     * @param username the uer username
+     * @param password the user password
      */
     public void login(String username, String password) {
         writeText(usernameField, username); 

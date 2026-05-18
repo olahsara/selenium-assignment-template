@@ -2,7 +2,6 @@ package pages.components;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
 import pages.LoginPage;
 import pages.ProfileEditModal;
