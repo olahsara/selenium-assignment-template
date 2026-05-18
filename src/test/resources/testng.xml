@@ -3,6 +3,8 @@
 <suite name="Subtitle Ninjas Test Suite">
     <test name="End to End User Workflow">
         <classes>
+            <class name="tests.HomePageTest" />
+
             <class name="tests.UserWorkflowTest" />
         </classes>
     </test>

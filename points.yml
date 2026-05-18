@@ -70,7 +70,7 @@ basic:
     description: "Submit a form (each distinct form counts as one)"
 
   static_page_test: # 2 pts | once
-    done: false
+    done: true
     description: "Test a static page (verify text content, element presence, etc.)"
 
   multiple_page_test: # 3 pts | once
@@ -143,7 +143,7 @@ advanced:
     link: "https://www.selenium.dev/documentation/webdriver/interactions/cookies/"
 
   hover_test: # 6 pts | once
-    done: false
+    done: true
     description: "Perform a hover (mouse over) action and verify the result"
     link: "https://www.selenium.dev/documentation/webdriver/actions_api/mouse/"
 
@@ -158,7 +158,7 @@ advanced:
     link: "https://www.selenium.dev/documentation/webdriver/elements/file_upload/"
 
   history_test: # 4 pts | once
-    done: false
+    done: true
     description: "Test browser history navigation (e.g. back(), forward())"
     link: "https://www.selenium.dev/documentation/webdriver/interactions/navigation/"
 
@@ -172,7 +172,7 @@ advanced:
     description: "Verify an e-mail was sent (e.g. registration activation link, password reset)"
 
   random_data: # 8 pts | once
-    done: false
+    done: true
     description: "Generate random test data (e.g. random username, email) and use it in a test"
 
   download_files: # 12 pts | once

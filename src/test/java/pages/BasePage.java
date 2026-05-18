@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import java.util.function.Function;
 
 import utils.ConfigReader;
 
@@ -20,15 +21,32 @@ public class BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(Integer.parseInt(ConfigReader.getProperty("explicit_wait"))));
     }
 
+    protected WebElement waitForVisibility(By locator) {
+        killAllPopupsAndOverlays();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    protected WebElement waitForPresence(By locator) {
+        killAllPopupsAndOverlays();
+        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+
+    protected WebElement waitForClickable(By locator) {
+        killAllPopupsAndOverlays();
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    protected void waitForCustomCondition(Function<WebDriver, Boolean> condition) {
+        wait.until(condition);
+    }
+
     /**
      * Helper method to click on an element specified by the locator
      * @param locator the locator of the element to click
      */
     protected void click(By locator) {
-        killAllPopupsAndOverlays();
-
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+            waitForClickable(locator).click();
         } catch (Exception e) {
             WebElement element = driver.findElement(locator);
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
@@ -41,8 +59,7 @@ public class BasePage {
      * @param text the text to write into the input field
      */ 
     protected void writeText(By locator, String text) {
-        killAllPopupsAndOverlays();
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        WebElement element = waitForVisibility(locator);
         element.clear();
         element.sendKeys(text);
     }
@@ -53,7 +70,7 @@ public class BasePage {
      * @return the text of the element
      */
     protected String getText(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
+        return waitForVisibility(locator).getText();
     }
 
     /**

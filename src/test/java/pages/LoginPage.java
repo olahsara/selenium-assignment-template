@@ -36,8 +36,8 @@ public class LoginPage extends BasePage {
         // Dynamic synchronization layer waiting for manual reCAPTCHA solving
         try {
             System.out.println("[SELENIUM] Please solve the reCAPTCHA verification in the browser window...");
-            wait.until(driver -> {
-                String captchaToken = driver.findElement(recaptchaResponseField).getAttribute("value");
+            waitForCustomCondition(d -> {
+                String captchaToken = d.findElement(recaptchaResponseField).getAttribute("value");
                 return captchaToken != null && !captchaToken.isEmpty();
             });
             System.out.println("[SELENIUM] reCAPTCHA completed successfully, continuing workflow...");

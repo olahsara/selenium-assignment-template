@@ -43,7 +43,7 @@ public class HeaderComponent extends BasePage {
      */
     public boolean isUserLoggedIn() {
         try {
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(profileAvatarButton)).isDisplayed();
+            return waitForVisibility(profileAvatarButton).isDisplayed();
         } catch (Exception e) {
             return false;
         }
